@@ -1,0 +1,36 @@
+- name: Install Hombrew Formulas
+  homebrew:
+    name:
+      - corepack
+      - coreutils
+      - fd
+      - ffmpegthumbnailer
+      - fzf
+      - gh
+      - glpk
+      - gnupg
+      - ipython
+      - jq
+      - mkcert
+      - neovim
+      - openjdk@11
+      - openjdk@8
+      - pandoc
+      - poppler
+      - pstoedit
+      - pyenv
+      - qmk/qmk/qmk
+      - ripgrep
+      - sevenzip
+      - sl
+      - stow
+      - texlab
+      - thefuck
+      - tidy-html5
+      - tldr
+      - tmux
+      - tree
+    state: present
+    update_brew: true
+  tags:
+    - install

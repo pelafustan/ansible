@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  pre_tasks:
+    - name: Apple check
+      when: ansible_os_family == "Darwin"
+      block:
+        - name: Set Homebrew Path
+          ansible.builtin.set_fact:
+            homebrew_path: /usr/local/bin/brew
+          when: ansible_architecture != "arm64"
+        - name: Set Hombrew Path
+          ansible.builtin.set_fact:
+            homebrew_path: /opt/homebrew/bin/brew
+          when: ansible_architecture == "arm64"
+        - name: Ensure Homebrew is installed
+          ansible.builtin.stat:
+            path: "{{ homebrew_path }}"
+          register: homebrew_check
+        - name: Install Homebrew if not present
+          homebrew:
+            state: present
+          when: not homebrew_check.stat.exists
+      tags:
+        - install
+
+  tasks:
+    - import_tasks: tasks/install_formulas.yml
+    - import_tasks: tasks/install_casks.yml

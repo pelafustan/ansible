@@ -1,0 +1,38 @@
+- name: Install Homebrew Casks
+  homebrew:
+    name:
+      - docker
+      - element
+      - figma
+      - firefox-developer-edition
+      - homebrew/cask-fonts/font-blex-mono-nerd-font
+      - gimp
+      - google-chrome
+      - google-drive
+      - inkscape
+      - jupyterlab
+      - kitty
+      - krita
+      - lastpass
+      - mactex-no-gui
+      - microsoft-edge
+      - obs
+      - openboard
+      - qbittorrent
+      - r
+      - rar
+      - rstudio
+      - shotcut
+      - slack
+      - spotify
+      - telegram-desktop
+      - utm
+      - vlc
+      - whatsapp
+      - xournal-plus-plus
+      - zettlr
+      - zoom
+    state: present
+    update_brew: true
+  tags:
+    - install
